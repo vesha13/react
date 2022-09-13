@@ -15,7 +15,6 @@ function ShopItemFunc() {
         
 
     return (
-        <div id='main'>
         <div  className='ShopItemFunc'>
             <div class="main-content">
   <h2>{newItem.brand}</h2>
@@ -31,7 +30,6 @@ function ShopItemFunc() {
     <button>Добавить в корзину</button>
   </div>
 </div>
-        </div>
         </div>
 
     )
