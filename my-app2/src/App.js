@@ -1,14 +1,9 @@
-import React, {useState} from "react"
-import ShopItemFunc from './ShopItemFunc';
+import React from "react"
+import ShopItemClass from './ShopItemClass';
 import './App.css';
 
-function App() {
-    const[item, SetItem]= useState([])
-
-    const addItem = () =>{
-      SetItem([item])
-      }
-
+class App extends React.Component {
+  render() {
   return (
     
     <div className="container">
@@ -18,11 +13,12 @@ function App() {
     <div className='highlight-overlay'></div>
     </div>
     <div className="window">
-      <ShopItemFunc item={addItem} />
+      <ShopItemClass item={this.newItem} />
     </div>
   </div>
   
   )
+}
 }
 
 export default App;

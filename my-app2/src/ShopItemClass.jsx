@@ -1,20 +1,23 @@
 import React from "react"
 import './App.css';
 
-function ShopItemFunc() {
-    
-        let newItem = {
-          brand: 'Tiger of Sweden',
-          title: 'Leonard coat',
-          description: 'Minimalistic coat in cotton-blend',
-          descriptionFull: 'Men\'s minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.',
-          price: 399,
-          currency: '£'
-        }
-       
+let newItem = {
+  brand: 'Tiger of Sweden',
+  title: 'Leonard coat',
+  description: 'Minimalistic coat in cotton-blend',
+  descriptionFull: 'Men\'s minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.',
+  price: 399,
+  currency: '£'
+}
+
+class ShopItemClass extends React.Component {
+
+   
+    render() {
+      
         
     return (
-      <div  className='ShopItemFunc'>
+      <div  className='ShopItemClass'>
         <div class="main-content">
             <h2>{newItem.brand}</h2>
             <h1>{newItem.title.toUpperCase()}</h1>
@@ -31,6 +34,7 @@ function ShopItemFunc() {
           </div>
         </div>
     )
+  }
 }
 
-export default ShopItemFunc
+export default ShopItemClass
