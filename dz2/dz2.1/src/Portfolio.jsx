@@ -5,12 +5,7 @@ import Toolbar from "./Toolbar";
 
 class Portfolio extends React.Component {
     
-  constructor(props){
-      super(props);
-      this.state = {
-        selected: 'All'
-      };
-    }
+  state = {selected: 'All'}
 
     projects = [{
         img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
@@ -75,7 +70,7 @@ class Portfolio extends React.Component {
           {this.setState((projects) => projects.filter((proj) => proj.category!==this.state.selected))}
        }
        
-    render(){
+    render(state){
         const {selected} = this.state.selected;
         const {projects} = this.projects;
         //const {filter} = this.filter;
