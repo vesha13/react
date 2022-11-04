@@ -1,11 +1,16 @@
 import React from "react"
-import './App.css';
+import './App.css'
 
-function IconCwitch ({icon , onSwitch}){
+function IconSwitch ({icon , onSwitch}){
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+         onSwitch()
+     } 
     return(
-        <li >
-            <button  onClick ={onSwitch()}>{icon.value}</button>
-        </li>
+        <div >
+            <button onClick={(e) =>handleSubmit(e)}><img alt='' src={icon}/></button>
+        </div>
     )
 }
-export default IconCwitch
+export default IconSwitch

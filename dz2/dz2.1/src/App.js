@@ -4,13 +4,14 @@ import Portfolio from './Portfolio';
 //import ProjectList from './ProjectList';
 import './App.css';
 
+
 class App extends React.Component {
   render(){
 
 
 return (
   <div className = "App">
-    <Portfolio/>
+    <Portfolio />
   </div>
 );
 }

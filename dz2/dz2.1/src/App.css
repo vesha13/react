@@ -1,6 +1,19 @@
 .App {
   text-align: center;
 }
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filters{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 30%;
+  
+}
 
 .App-logo {
   height: 40vmin;

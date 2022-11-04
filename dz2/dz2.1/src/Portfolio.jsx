@@ -1,85 +1,33 @@
 import React from "react"
-import './App.css';
+//import './App.css';
 import PorojectList from "./ProjectList";
 import Toolbar from "./Toolbar";
+import projects from "./Projects";
 
 class Portfolio extends React.Component {
+  
+
+  constructor(props) {
+    super(props);
+    this.state = {selected: 'All'};
+    this.onSelectedFilter = this.onSelectedFilter.bind(this);
+    }
     
-  constructor(props){
-      super(props);
-      this.state = {
-        selected: 'All'
-      };
+
+
+     onSelectedFilter =(filter) =>{
+      this.setState({selected: filter})
+      //return this.state
     }
 
-    projects = [{
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
-        category: "Business Cards"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/200.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/emi_haze.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/codystretch.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_003.jpg",
-        category: "Business Cards"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290.png",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/200.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/transmission.jpg",
-        category: "Business Cards"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_1.png",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_2.png",
-        category: "Flayers"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/the_ninetys_brand.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/dia.jpg",
-        category: "Business Cards"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_350x197.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/emi_haze.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/transmission.jpg",
-        category: "Business Cards"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/Triangle_350x197_1.jpg",
-        category: "Websites"
-      }, {
-        img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/place200x290_3.png",
-        category: "Flayers"
-      }];
-      onSelectedFilter =(filter) =>{
-             this.setState(this.selected= filter);
-}
-
-      handleRemove = (projects) => {
+      onFilteredProjects = (projects) =>{
         if (this.state.selected === "All")
-          {this.setState((projects) => projects.map((proj) => proj))}
-        else 
-          {this.setState((projects) => projects.filter((proj) => proj.category!==this.state.selected))}
-       }
-       
+        return projects 
+        else return projects.filter(project => project.category === this.state.selected)
+      }
+
     render(){
-        const {selected} = this.state.selected;
-        const {projects} = this.projects;
-        //const {filter} = this.filter;
-     
+      const { selected } = this.state;
         return(
             <div>
               <div>
@@ -89,7 +37,7 @@ class Portfolio extends React.Component {
                   onSelectedFilter={this.onSelectedFilter}/>
              </div>
             <div>
-            <PorojectList onRemove={this.handleRemove(projects)}/>
+            <PorojectList projects ={this.onFilteredProjects(projects)} />
             </div>
             </div>
         )

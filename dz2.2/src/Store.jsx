@@ -3,30 +3,44 @@ import './App.css';
 import IconSwitch from './IconSwitch'
 import CardView from './CardView'
 import ListView from './ListView'
+//import 'https://fonts.googleapis.com/icon?family=Material+Icons'
+import card from'./card.png'
+import list from './list.png'
+
 
 function Store ({products}){
 
-  const[icon, setIcon]= useState('List')
   
-    const onSwitch =() =>{
-      setIcon('Dashbord')
+  //const[ListСondition, setList] = useState(false);
+  const[ListCondition, setCard] = useState(true);
+
+  const SwitchList = () =>{
+    setCard(()=> false)
   }
-return(
-      <div>
-              <div>
-                <IconSwitch
-                icon ={icon}
-                onSwitch ={onSwitch}
-                  />
-             </div>
-            <div>
-              {products.map ((product)=> <CardView cards ={product}/>)}
-            </div>
-            <div>
-              {products.map ((product)=> <ListView items ={product}/>)}
-            </div>
-            </div>
-  )
+
+  const SwitchCard = () =>{
+    setCard(()=> true)
+  }
+  
+
+  if(ListCondition)
+  return(
+    <div>
+    <IconSwitch 
+        icon={card}
+        onSwitch = {SwitchList}
+        />
+  <ListView items={products}/>
+    </div>)
+  else
+  return(
+    <div>
+  <IconSwitch 
+    icon={list}
+    onSwitch = {SwitchCard}
+    />
+  <CardView cards={products} />
+    </div>)
 }
 
 export default Store

@@ -1,19 +1,18 @@
 import './App.css';
 import React from "react"
 //import Portfolio from './Portfolio';
+//import projects from './Projects';
 
 
 function PorojectList ({projects}){
-
-    projects.map((projects) => {
+    
         return (
-            <li>
-                <img src ={projects.img} alt =""/>
-            </li>
-          )})
+            <ul className='cards'>
+                 {projects.map((item, index)=> <div  key={index}><img src ={item.img} alt ='img'></img></div>)}
+            </ul>
+          )
         }
 
-    
     
 
 
